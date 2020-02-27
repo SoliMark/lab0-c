@@ -12,9 +12,12 @@
  */
 queue_t *q_new()
 {
-    queue_t *q = malloc(sizeof(queue_t));
-    /* TODO: What if malloc returned NULL? */
+    queue_t *q = (queue_t *) malloc(sizeof(queue_t));
+    if (!q)
+        return NULL;
     q->head = NULL;
+    q->tail = NULL;
+    q->size++;
     return q;
 }
 

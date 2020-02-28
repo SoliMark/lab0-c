@@ -115,13 +115,11 @@ bool q_remove_head(queue_t *q, char *sp, size_t bufsize)
 
     list_ele_t *tmp = q->head;
     if (sp) {
-        strncpy(tmp->value, sp, bufsize);
-        if (tmp->value[bufsize - 1] != '\0') {
+        strncpy(sp, tmp->value, bufsize);
+        if (sp[bufsize - 1] != '\0') {
             return false;
         }
     }
-    /* TODO: You need to fix up this code. */
-    /* TODO: Remove the above comment when you are about to implement. */
     q->head = q->head->next;
     free(tmp->value);
     free(tmp);
